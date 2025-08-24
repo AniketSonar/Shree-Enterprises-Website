@@ -1,37 +1,134 @@
-:root{
-    --brand:#0d6efd; /* Bootstrap primary */
-    --brand-dark:#0a58ca;
-    --ink:#1f2937;
-    --muted:#6b7280;
-    --bg:#ffffff;
+:root {
+  --brand:#0d6efd; /* Bootstrap primary */
+  --brand-dark:#0a58ca;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --bg:#ffffff;
 }
-html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);}
-.navbar-brand b{letter-spacing:.3px}
-.btn-brand{background:var(--brand);border-color:var(--brand)}
-.btn-brand:hover{background:var(--brand-dark);border-color:var(--brand-dark)}
-.hero{
-    background:linear-gradient( to right, rgba(13,110,253,.10), rgba(13,110,253,.05) ), url('https://images.aniket.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop');
-    background-size:cover; background-position:center; color:#0b1220;
-}
-.hero .overlay{backdrop-filter: blur(2px)}
-.section-title{font-weight:800; letter-spacing:.2px}
-.section-sub{color:var(--muted)}
-.card-product{transition:transform .2s ease, box-shadow .2s ease}
-.card-product:hover{transform:translateY(-4px);box-shadow:0 1rem 2rem rgba(0,0,0,.08)}
-.icon-bullet{width:36px;height:36px;border-radius:10px;background:#eef2ff;display:grid;place-items:center;color:var(--brand)}
-.list-checked li{margin: .4rem 0}
-.list-checked i{color:#16a34a;margin-right:.4rem}
-.brand-strip img{max-height:44px;opacity:.9;filter:grayscale(1)}
-.brand-strip img:hover{filter:none}
-.floating-whatsapp{
-    position:fixed;right:18px;bottom:18px;z-index:1050;display:flex;gap:.5rem;align-items:center;
-    background:#25D366;color:#fff;border-radius:999px;padding:.6rem 1rem;box-shadow:0 10px 25px rgba(0,0,0,.18)
-}
-.floating-whatsapp i{font-size:1.4rem}
-.gallery img{border-radius:14px}
-footer a{ color: #cfe1ff; text-decoration:none }
-footer a:hover{ text-decoration:underline }
-.mini-badge{font-size:.75rem;border:1px solid #e5e7eb;border-radius:999px;padding:.15rem .6rem;color:#111827;background:#fff}
-.dropdown-mega{min-width: 640px}
-.shadow-soft{box-shadow:0 12px 28px rgba(0,0,0,.06)}
 
+html, body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.navbar-brand b { letter-spacing: .3px }
+
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.btn-brand:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+
+.hero {
+  background: linear-gradient(to right, rgba(13,110,253,.10), rgba(13,110,253,.05)),
+              url('https://images.aniket.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  color: #0b1220;
+}
+.hero .overlay { backdrop-filter: blur(2px) }
+
+.section-title { font-weight: 800; letter-spacing: .2px }
+.section-sub { color: var(--muted) }
+
+.card-product {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card-product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.08);
+}
+
+.icon-bullet {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eef2ff;
+  display: grid;
+  place-items: center;
+  color: var(--brand);
+}
+
+.list-checked li { margin: .4rem 0 }
+.list-checked i { color: #16a34a; margin-right: .4rem }
+
+.brand-strip img { max-height: 44px; opacity: .9; filter: grayscale(1) }
+.brand-strip img:hover { filter: none }
+
+.floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1050;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  background: #25D366;
+  color: #fff;
+  border-radius: 999px;
+  padding: .6rem 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+.floating-whatsapp i { font-size: 1.4rem }
+
+.gallery img { border-radius: 14px }
+
+footer a { color: #cfe1ff; text-decoration: none }
+footer a:hover { text-decoration: underline }
+
+.mini-badge {
+  font-size: .75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: .15rem .6rem;
+  color: #111827;
+  background: #fff;
+}
+
+.shadow-soft { box-shadow: 0 12px 28px rgba(0,0,0,.06) }
+
+/* --- Mega Menu --- */
+.dropdown-mega {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none;
+  border-radius: 0;
+  min-width: unset !important; /* Remove fixed 640px */
+}
+
+.dropdown-mega .row { margin: 0; }
+
+.dropdown-mega a {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+.dropdown-mega a:hover { background: #f8f9fa; }
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+  .dropdown-mega {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    padding: 10px;
+  }
+
+  /* Stack vertically */
+  .dropdown-mega .col-6,
+  .dropdown-mega .col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .dropdown-mega a {
+    padding: 12px;
+    border-radius: 6px;
+  }
+}
