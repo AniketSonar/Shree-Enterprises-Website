@@ -6,8 +6,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       const el = document.querySelector(href);
       if (el) {
         e.preventDefault();
+        // Dynamically get navbar height
+        const navbar = document.querySelector('.navbar.sticky-top');
+        const navHeight = navbar ? navbar.offsetHeight : 0;
+        const rect = el.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         window.scrollTo({
-          top: el.offsetTop - 70,
+          top: rect.top + scrollTop - navHeight,
           behavior: 'smooth'
         });
       }
